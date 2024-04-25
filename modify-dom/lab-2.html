@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2>List</h2>
+<ul id="list">
+</ul>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+  const list = document.getElementById("list");
+  
+  function addItemToList() {
+    const userInput = prompt("Pls. fill anything or cancel");
+    if (userInput === null || userInput.trim() === "") {
+      return;
+    }
+
+    const listItem = document.createElement("li");
+    listItem.textContent = userInput;
+    list.appendChild(listItem);
+    addItemToList();
+  }
+  addItemToList();
+});
+</script>
+</body>
+</html>

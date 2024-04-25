@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- -----------------HTML-attribute-------------------------------------- -->
+  <!-- <form onsubmit="alert('Form is submitted'); return false;">
+    <button type="submit">Submit Form</button>
+  </form>
+</body>
+
+</html> -->
+
+<!-------------------------------DOM property----------------------------------->
+<!-- <body>
+  <form id="myForm">
+    <button type="submit">Submit Form</button>
+  </form>
+
+  <script>
+    const form = document.getElementById('myForm');
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      alert('Form is submitted');
+    });
+  </script>
+</body> -->
+
+<!-- ---------------------------Event listener------------------------------- -->
+<body>
+
+  <form id="myForm">
+    <button type="submit">Submit Form</button>
+    <button id="cancelBtn" type="button">Cancel</button>
+  </form>
+
+  <script>
+
+    const form = document.getElementById('myForm');
+    const cancelBtn = document.getElementById('cancelBtn');
+
+
+    function handleSubmit(event) {
+    event.preventDefault();
+      alert('Form is submitted');
+    }
+    function handleCancel() {
+      alert('Form submission canceled');
+      form.removeEventListener('submit', handleSubmit);
+    }
+    form.addEventListener('submit', handleSubmit);
+    cancelBtn.addEventListener('click', handleCancel);
+
+  </script>
+
+</body>

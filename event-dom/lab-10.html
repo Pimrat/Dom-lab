@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Province and District</title>
+</head>
+<body>
+    <h2>Province and District</h2>
+    <label for="province">Province:</label>
+    <select id="province" onchange="populateDistricts()">
+        <option value="">Select Province</option>
+        <option value="Bangkok">Bangkok</option>
+        <option value="Phayao">Phayao</option>
+        <option value="Lopburi">Lopburi</option>
+    </select>
+
+    <label for="district">District:</label>
+    <select id="district">
+        <option value="">Select District</option>
+        </select>
+    <script>
+        function populateDistricts() {
+            var provinceSelect = document.getElementById("province");
+            var districtSelect = document.getElementById("district");
+            var province = provinceSelect.value;
+
+            districtSelect.innerHTML = "<option value=''>Select District</option>";
+            if (province === "Bangkok") {
+                districtSelect.innerHTML += `
+                    <option value="Bangkok District 1">Dindaeng</option>
+                    <option value="Bangkok District 2">Bangna</option>
+                    <option value="Bangkok District 3">Bangchak</option>
+                `;
+            } else if (province === "Phayao") {
+                districtSelect.innerHTML += `
+                    <option value="Chiang Mai District 1">Muang Phayao</option>
+                    <option value="Chiang Mai District 2">Pong</option>
+                    <option value="Chiang Mai District 3">Jun</option>
+                `;
+            } else if (province === "Lopburi") {
+                districtSelect.innerHTML += `
+                    <option value="Phuket District 1">Muang Lopburi</option>
+                    <option value="Phuket District 2">Tha-Luang</option>
+                    <option value="Phuket District 3">Nhong-Moung</option>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>

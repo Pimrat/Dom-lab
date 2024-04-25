@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" name="nickname" id="nickNameInput" placeholder="Enter nickname">
+  <input type="text" name="job" id="jobInput" placeholder="Enter job">
+  <script>
+    const nicknameInput = document.getElementById('nickNameInput');
+    const jobInput = document.getElementById('jobInput');
+
+    nicknameInput.addEventListener('click', function(event){
+      console.log('clicked from:', event.target.getAttribute('name'));
+    })
+    jobInput.addEventListener('click', function(event){
+      console.log('clicked from:', event.target.getAttribute('name'));
+    })
+
+    nicknameInput.addEventListener('input', function(event){
+      console.log('Typing:', event.target.value);
+    })
+    jobInput.addEventListener('input', function(event){
+      console.log('Typing:', event.target.value);
+    })
+
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

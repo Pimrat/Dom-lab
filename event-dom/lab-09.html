@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    #phone-error {
+      color: red;
+    }
+  </style>
+
+  <input type="text" name="phonNumber" id="phonNumber" placeholder="Phone Number">
+  <button onclick="checkPhoneNumber()">Check</button>
+  <div id="phone-error"></div>
+
+  <script>
+    function checkPhoneNumber() {
+      let phonNumber = document.getElementById('phonNumber').value;
+      if (phonNumber === "") {
+        document.getElementById('phone-error').innerText = "Phone Number is required"
+        //----------Regex------------------------------
+        //else if (!/^\d+$/.test(phonNumber)) {
+        //document.getElementById('phone-error').innerText = "Phone Number is invalid"
+      } else if (isNaN(+phonNumber)) {
+        document.getElementById('phone-error').innerText = "Phone Number is invalid"
+      } else if (phonNumber.length !== 10 ) {
+        document.getElementById('phone-error').innerText = "Invalid length"
+      } else {
+        alert("Your number is valid");
+      }
+    }
+  </script>
+</body>
+
+</html>
+
+

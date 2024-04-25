@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <style>
+        .completed {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <h2>Todo List</h2>
+    <input type="text" id="todoInput">
+    <button onclick="addTodo()">Add</button>
+    <ul id="todoList">
+    </ul>
+
+    <script>
+        function addTodo() {
+            var inputValue = document.getElementById("todoInput").value;
+            if (inputValue === '') {
+                alert("Please enter a todo!");
+                return;
+            }
+            var li = document.createElement("li");
+            var textNode = document.createTextNode(inputValue);
+            li.appendChild(textNode);
+            li.addEventListener('click', function() {
+                this.classList.toggle('completed');
+            });
+            var editBtn = document.createElement("button");
+            editBtn.innerHTML = "Edit";
+            editBtn.addEventListener('click', function() {
+                var newText = prompt("Enter new text:", textNode.textContent);
+                if (newText !== null && newText !== '') {
+                    textNode.textContent = newText;
+                }
+            });
+            li.appendChild(editBtn);
+            var delBtn = document.createElement("button");
+            delBtn.innerHTML = "Del";
+            delBtn.addEventListener('click', function() {
+                li.remove();
+            });
+            li.appendChild(delBtn);
+            document.getElementById("todoList").appendChild(li);
+            document.getElementById("todoInput").value = "";
+        }
+    </script>
+</body>
+</html>

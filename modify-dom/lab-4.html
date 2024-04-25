@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .red-background {
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <button class="btn">Submit</button>
+  <!-- -------Medthod 1 : เปลี่ยน property style ของ element object------------------ -->
+
+  <!-- <script>
+    const btn = document.querySelector('.btn');
+    function changeColor() {
+      btn.style.backgroundColor = 'red';
+      setTimeout(() => {
+        btn.style.backgroundColor = '';
+      }, 3000);
+    }
+
+    btn.addEventListener('click', changeColor);
+  </script>  -->
+  <!-- -------- Medthod 2 : วิธีเพิ่มลด class------------------------------------------- -->
+  <script>
+    const btn = document.querySelector('.btn');
+
+    function changeColor() {
+      btn.classList.add('red-background');
+      setTimeout(() => {
+        btn.classList.remove('red-background');
+      }, 3000); 
+    }
+    btn.addEventListener('click', changeColor);
+  </script>
+</body>
+
+</html>
